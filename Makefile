@@ -26,4 +26,4 @@ run:
 	./main
 
 test:
-	./tests
+	./tester
