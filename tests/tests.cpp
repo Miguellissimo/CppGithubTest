@@ -92,14 +92,3 @@ TEST_CASE("test with memcmp") {
 	REQUIRE(std::memcmp(&p1, &p2, sizeof(primitives)) != 0);
 	REQUIRE(std::memcmp(&p1, &p3, sizeof(primitives)) == 0);
 }
-
-TEST_CASE("test between pod and non pod with memcmp") {
-	primitives p1 = { 1, 2.0, {3, 4} };
-	not_trivial_2 p2;
-	p2.x = 1;
-	p2.y = 2.0f;
-	p2.a[0] = 3;
-	p2.a[1] = 4;
-
-	REQUIRE(std::memcmp(&p1, &p2, sizeof(primitives)) != 0);
-}
