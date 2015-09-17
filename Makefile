@@ -1,5 +1,8 @@
 # specify used compiler and flags
+ifndef CXX
 CXX = g++
+endif
+
 CFLAGS = -std=c++14 -Wall
 CATCH_PATH = tests/catch.hpp
 CPP_FILES := $(wildcard src/*.cpp)
