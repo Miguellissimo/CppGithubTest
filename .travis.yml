@@ -3,6 +3,8 @@ compiler: gcc
 
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+  - export CC=`which $CC`
+  - export CXX=`which $CXX`
 addons:
   apt:
     sources:
@@ -10,5 +12,8 @@ addons:
     packages:
     - gcc-4.9
     - g++-4.9
+
+before_script:
+  $CXX --version
 
 script: make && make test
