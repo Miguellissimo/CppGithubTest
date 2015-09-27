@@ -1,5 +1,7 @@
 # specify the used compiler
+ifndef CXX
 CXX = g++
+endif
 
 # specified compiler flags
 YAML = lib/include/yaml-cpp

@@ -8,14 +8,6 @@ TEST_CASE("is primitive a trivial class") {
 	REQUIRE(std::is_trivial<primitives>::value == true);
 }
 
-TEST_CASE("primitive instance") {
-	primitives p = {2, 3.7, {1,2}};
-	REQUIRE(p.x == 2);
-	REQUIRE(p.y == 3.7f);
-	REQUIRE(p.a[0] == 1);
-	REQUIRE(p.a[1] == 2);
-}
-
 TEST_CASE("is constructor a trivial class") {
 	REQUIRE(std::is_trivial<constructor>::value == true);
 }

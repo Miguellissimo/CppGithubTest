@@ -1,6 +1,11 @@
 language: cpp
 compiler: gcc
 
+before_install:
+  - sudo apt-add-repository ppa:boost-latest/ppa -y
+  - sudo apt-get update -y
+  - sudo apt-get install libboost1.55-all-dev
+
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
 addons:
@@ -12,6 +17,8 @@ addons:
     - g++-4.9
 
 before_script:
-  $CXX --version
+  - $CXX --version 
+  - cmake --version
+  - dpkg -s libboost1.55-dev | grep 'Version'
 
 script: make && make test
