@@ -1,7 +1,8 @@
 #define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
-#include "../src/trivial.h"
+#include "trivial.h"
+#include "yaml.h"
 
 TEST_CASE("is primitive a trivial class") {
 	REQUIRE(std::is_trivial<primitives>::value == true);
@@ -91,4 +92,10 @@ TEST_CASE("test with memcmp") {
 
 	REQUIRE(std::memcmp(&p1, &p2, sizeof(primitives)) != 0);
 	REQUIRE(std::memcmp(&p1, &p3, sizeof(primitives)) == 0);
+}
+
+TEST_CASE("test yaml") {
+	YAML::Node config = YAML::LoadFile("config.yaml");
+
+	REQUIRE(config["name"].as<std::string>() == "Example Developer");
 }
